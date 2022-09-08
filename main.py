@@ -11,6 +11,10 @@ from scp import SCPClient
 from sys import argv
 from pdfreader import SimplePDFViewer, PageDoesNotExist
 
+# EDIT THESE
+notebook_uuid = "your_uuid" # UUID found using the "find_uuid.py" script
+password = "your_password" # Edit this to be your remarkable's ssh password
+
 image_full = nparray([])
 
 # If the image is a .pdf it must first be processed
@@ -93,12 +97,10 @@ ip_address = gethostbyname("remarkable.local")
 # Establish a connection to the remarkable
 with SSHClient() as ssh:
     ssh.load_system_host_keys()
-    ssh.connect(ip_address, 22, "root", "dbUKgpgcjF")
+    ssh.connect(ip_address, 22, "root", password)
 
     # Start SCP
     with SCPClient(ssh.get_transport()) as scp:
-      
-      notebook_uuid = "87a48cf0-adef-4edc-ae2e-a01712523990" # UUID of the Circuit Scans notebook
 
       # Generate a new UUID for the page
       page_uuid = str(uuid1());
