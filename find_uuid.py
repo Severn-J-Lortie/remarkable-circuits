@@ -5,13 +5,16 @@ from stat import S_ISDIR, S_ISREG
 from json import load
 from io import StringIO, BytesIO
 
+# EDIT THIS
+password = "your password"
+
 # Find the IP Address of the remarkable
 ip_address = gethostbyname("remarkable.local")
 
 # Connect to the remarkable
 with SSHClient() as ssh:
     ssh.load_system_host_keys()
-    ssh.connect(ip_address, 22, "root", "dbUKgpgcjF")
+    ssh.connect(ip_address, 22, "root", password)
       
     # Open the sftp client
     sftp = ssh.open_sftp();
