@@ -5,7 +5,7 @@
 
 Convert an image of a circuit schematic to an editable Remarkable 2 file.
 
-[Demo image](/demo.png)
+![Demo image](/demo.png)
 
   
 
